@@ -1,0 +1,29 @@
+{{#if user}}
+{{else}}
+<div class="jumbotron">
+  <h1 class="display-4">Bem-vindo ao Blog NodeJS!</h1>
+  <p class="lead">Este é um blog simples, desenvolvido com NodeJs + Express + MongoDB</p>
+  <hr class="my-4">
+  <p>Aqui você vai poder ler sobre as novidades do mundo da computação</p>
+  <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Crie uma conta</a>
+</div>
+
+<hr>
+{{/if}}
+
+<h2>Postagens Recentes: </h2>
+
+{{#each postagens}}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>{{titulo}}</h3>
+            <p>{{descricao}}</p>
+            <a href="/postagem/{{id}}"><button class="btn btn-success">Leia mais</button></a>
+            <hr>
+            <small><strong>Categoria: </strong>{{categoria.nome}}</small><br>
+            <small><strong>Data: </strong>{{data}}</small>
+        </div>
+    </div>
+{{else}}
+    <h5 class="mt-4">Nenhuma Postagem</h5>
+{{/each}}
